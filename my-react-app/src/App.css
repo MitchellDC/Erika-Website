@@ -1,0 +1,42 @@
+header, footer {
+  background-color: #004080; /* Dark blue like Windsor Place */
+  color: #fff;
+  padding: 1rem 2rem;
+}
+
+nav a {
+  margin-right: 1.5rem;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #f0c040; /* Gold accent */
+}
+
+footer {
+  text-align: center;
+  padding: 1rem 2rem;
+}
+
+section {
+  padding: 2rem 0;
+}
+
+h1, h2, h3 {
+  margin-bottom: 1rem;
+}
+
+button {
+  background-color: #004080;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #f0c040;
+  color: #004080;
+}
