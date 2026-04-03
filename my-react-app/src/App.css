@@ -1,42 +1,91 @@
-header, footer {
-  background-color: #004080; /* Dark blue like Windsor Place */
-  color: #fff;
-  padding: 1rem 2rem;
-}
-
-nav a {
-  margin-right: 1.5rem;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-
-nav a:hover {
-  color: #f0c040; /* Gold accent */
+header {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                    url('/RidgeView_TopWebBanner.png');
+  background-size: cover;
+  background-position: center;
+  padding: 4rem 2rem;
+  min-height: 200px;
+  color: white;
+  position: relative;
 }
 
 footer {
-  text-align: center;
-  padding: 1rem 2rem;
-}
-
-section {
-  padding: 2rem 0;
-}
-
-h1, h2, h3 {
-  margin-bottom: 1rem;
-}
-
-button {
-  background-color: #004080;
+  background-color: #800000; /* Deep Maroon to match logo */
   color: #fff;
-  border: none;
-  padding: 0.7rem 1.5rem;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  
+  /* Increased sizing */
+  padding: 2rem 1rem; 
+  text-align: center;
 }
 
-button:hover {
-  background-color: #f0c040;
-  color: #004080;
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+/* --- Hamburger Styles --- */
+.hamburger {
+  display: none; /* Hidden on desktop */
+  flex-direction: column;
+  cursor: pointer;
+  background: none;
+  border: none;
+  gap: 5px;
+  z-index: 10;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  transition: 0.3s;
+}
+
+main {
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+}
+
+/* Ensure the wrapper takes up space so the footer doesn't jump */
+.motion-div {
+  min-height: 60vh;
+}
+
+
+/* --- Mobile View --- */
+@media (max-width: 768px) {
+  header {
+    padding: 2rem; /* Smaller padding for mobile */
+  }
+
+  .hamburger {
+    display: flex;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+  .nav-links {
+    display: none; /* Hide links by default on mobile */
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #800000; /* Solid maroon for the dropdown */
+    padding: 2rem 0;
+    text-align: center;
+    z-index: 5;
+  }
+
+  .nav-links.active {
+    display: flex; /* Show when isOpen is true */
+  }
 }

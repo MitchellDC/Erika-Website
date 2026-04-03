@@ -2,8 +2,8 @@ function Contact() {
   return (
     <section>
       <h1>Contact Us</h1>
-      <p>Email: info@windsorplacect.com</p>
-      <p>Phone: (123) 456-7890</p>
+      <p>Email: ewindisch@kw.com</p>
+      <p>Phone: 203 584-4733</p>
       <form>
         <input type="text" placeholder="Name" required />
         <input type="email" placeholder="Email" required />
