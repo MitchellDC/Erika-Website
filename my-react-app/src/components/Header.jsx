@@ -1,16 +1,30 @@
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <header>
-      <div className="logo">
-        <h1>Windsor Place</h1>
-      </div>
       <nav>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/services">Services</Link>
-        <Link to="/contact">Contact</Link>
+        {/* Hamburger Button - only shows on mobile via CSS */}
+        <button className="hamburger" onClick={toggleMenu}>
+          <span className={isOpen ? "bar open" : "bar"}></span>
+          <span className={isOpen ? "bar open" : "bar"}></span>
+          <span className={isOpen ? "bar open" : "bar"}></span>
+        </button>
+
+        {/* Nav Links */}
+        <div className={`nav-links ${isOpen ? "active" : ""}`}>
+          <Link to="/" onClick={() => setIsOpen(false)}>Home</Link>
+          <Link to="/about" onClick={() => setIsOpen(false)}>About</Link>
+          <Link to="/services" onClick={() => setIsOpen(false)}>Services</Link>
+          <Link to="/contact" onClick={() => setIsOpen(false)}>Contact</Link>
+        </div>
       </nav>
     </header>
   );
