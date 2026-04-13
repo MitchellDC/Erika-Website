@@ -1,21 +1,28 @@
-import React, { useState } from 'react';
+import { useState } from "react";
 import { Link } from 'react-router-dom';
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+
 
   return (
-    <header>
-      <nav>
-        {/* Hamburger Button - only shows on mobile via CSS */}
+    <header className="full-logo-header">
+      <nav className="navbar">
+        {/* NEW: Logo added as an image tag  */}
+        {/* <Link to="/" className="logo-link" onClick={() => setIsOpen(false)}>
+          <img 
+            src="/RidgeView_TopWebBanner.png" 
+            alt="Ridge View Logo" 
+            className="header-logo" 
+          />
+        </Link>
+
+        {/* Hamburger Button */}
         <button className="hamburger" onClick={toggleMenu}>
-          <span className={isOpen ? "bar open" : "bar"}></span>
-          <span className={isOpen ? "bar open" : "bar"}></span>
-          <span className={isOpen ? "bar open" : "bar"}></span>
+          <span className={`bar ${isOpen ? "open" : ""}`}></span>
+          <span className={`bar ${isOpen ? "open" : ""}`}></span>
+          <span className={`bar ${isOpen ? "open" : ""}`}></span>
         </button>
 
         {/* Nav Links */}
@@ -23,6 +30,7 @@ function Header() {
           <Link to="/" onClick={() => setIsOpen(false)}>Home</Link>
           <Link to="/site" onClick={() => setIsOpen(false)}>Site</Link>
           <Link to="/about" onClick={() => setIsOpen(false)}>About</Link>
+          <Link to="/homemodels" onClick={() => setIsOpen(false)}>Model</Link>
           <Link to="/services" onClick={() => setIsOpen(false)}>Services</Link>
           <Link to="/contact" onClick={() => setIsOpen(false)}>Contact</Link>
         </div>

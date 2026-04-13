@@ -1,91 +1,220 @@
-header {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-                    url('/RidgeView_TopWebBanner.png');
+/* Header */
+.full-logo-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background: rgba(128, 0, 0, 0.85);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Navbar container */
+.navbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+/* Logo link takes full width */
+.logo-link {
+  width: 100%;
+  display: block;
+}
+
+/* HEADER BANNER IMAGE (Navbar look) */
+.header-logo {
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+  display: block;
+}
+
+/* HERO SECTION */
+.hero {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: white;
+  text-align: center;
+  background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c');
   background-size: cover;
   background-position: center;
-  padding: 4rem 2rem;
-  min-height: 200px;
-  color: white;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+}
+
+.hero-content {
   position: relative;
+  max-width: 800px;
 }
 
-footer {
-  background-color: #800000; /* Deep Maroon to match logo */
-  color: #fff;
-  
-  /* Increased sizing */
-  padding: 2rem 1rem; 
-  text-align: center;
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
 }
 
-nav {
-  display: flex;
-  justify-content: center;
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+/* OVERVIEW SECTION */
+.overview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
   align-items: center;
 }
 
-.nav-links {
-  display: flex;
+.overview-image {
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* FEATURES */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
+  margin-top: 3rem;
 }
 
-/* --- Hamburger Styles --- */
-.hamburger {
-  display: none; /* Hidden on desktop */
-  flex-direction: column;
+.center {
+  text-align: center;
+}
+
+/* CTA SECTION */
+.cta {
+  background: #800000;
+  color: white;
+  text-align: center;
+  border-radius: 1rem;
+  padding: 4rem 2rem;
+}
+
+.cta p {
+  margin-top: 1rem;
+}
+
+.cta .btn {
+  margin-top: 2rem;
+}
+
+/* BUTTON HOVER */
+button:hover, .btn:hover {
+  background: #5f0000;
+  transform: translateY(-2px);
+}
+
+/* FOOTER */
+footer {
+  background-color: #800000;
+  color: rgba(255,255,255,0.85);
+  padding: 1.2rem;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+/* FLOATING CONTACT BUTTON */
+.contact-bubble {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: #800000;
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
   cursor: pointer;
-  background: none;
-  border: none;
-  gap: 5px;
-  z-index: 10;
+  z-index: 100;
+  transition: all 0.25s ease;
 }
 
-.bar {
-  width: 25px;
-  height: 3px;
-  background-color: white;
-  transition: 0.3s;
+.contact-bubble:hover {
+  transform: translateY(-4px) scale(1.03);
 }
 
-main {
-  overflow-x: hidden;
-  position: relative;
-  width: 100%;
+/* ANIMATION */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Ensure the wrapper takes up space so the footer doesn't jump */
-.motion-div {
-  min-height: 60vh;
+/* NAV STYLING (desktop base) */
+nav {
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
 
+/* DESKTOP LAYOUT IMPROVEMENTS */
+section {
+  padding: 5rem 10%;
+}
 
-/* --- Mobile View --- */
+/* MOBILE */
 @media (max-width: 768px) {
-  header {
-    padding: 2rem; /* Smaller padding for mobile */
+
+  .hero h1 {
+    font-size: 2rem;
   }
 
-  .hamburger {
-    display: flex;
-    position: absolute;
-    top: 20px;
-    right: 20px;
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  nav {
+    flex-direction: column;
+    justify-content: center;
   }
 
   .nav-links {
-    display: none; /* Hide links by default on mobile */
     flex-direction: column;
+    width: 100%;
+    background: #800000;
     position: absolute;
     top: 100%;
     left: 0;
-    width: 100%;
-    background-color: #520c0c; /* Solid maroon for the dropdown */
-    padding: 2rem 0;
-    text-align: center;
-    z-index: 5;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
   }
 
   .nav-links.active {
-    display: flex; /* Show when isOpen is true */
+    max-height: 300px;
+    padding: 1rem 0;
+  }
+
+  .nav-links a {
+    padding: 0.75rem 1rem;
+  }
+
+  section > div {
+    grid-template-columns: 1fr !important;
+  }
+
+  section {
+    padding: 3rem 5%;
   }
 }
